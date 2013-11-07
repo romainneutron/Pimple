@@ -9,7 +9,12 @@
  * file that was distributed with this source code.
  */
 
-require_once __DIR__.'/../lib/Pimple.php';
+if (!extension_loaded('sensiolabs_pimple')) {
+    require_once __DIR__.'/../lib/Pimple.php';
+} else {
+    echo "Pimple extension detected and loaded for tests\n";
+}
+
 require_once __DIR__.'/Pimple/Tests/Service.php';
 require_once __DIR__.'/Pimple/Tests/Invokable.php';
 require_once __DIR__.'/Pimple/Tests/NonInvokable.php';
